@@ -6,14 +6,15 @@
     <title>NASATV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <section>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <img src="logo1.jpg" alt="image not found" id="logo">
+                <img src="img/logo1.jpg" alt="image not found" id="logo">
+                <span class="font-weight-bold ml-2">Welcome</span>
             </nav>
         </header>
     </section>
@@ -29,7 +30,7 @@
                     <div class="carousel-item active">
                         <div class="row">
                             <div class="col-sm-6 carouselImgDiv">
-                                <img src="pic1.jpg" class="d-block carouselImg" alt="Img not found">
+                                <img src="img/pic1.jpg" class="d-block carouselImg" alt="Img not found">
                             </div>
                             <div class="col carouselInfoDiv1">
                                 <div class="ml-5">
@@ -38,11 +39,14 @@
                                 <div class="text-left ml-5 mt-2">
                                     <span class="font-weight-bold priceFont">$160</span>
                                 </div>
+                                <div class="text-left ml-5 regFont font-weight-bold">
+                                    <span>1 Year Service Inluded</span>
+                                </div>
                                 <div class="text-left ml-5 font-italic regFont font-weight-bold">
                                     <span>Free Shipping</span>
                                 </div>
-                                <div class="text-left ml-5 mt-4 regFont font-weight-bold">
-                                    <span><i class="far fa-clock"></i> Limited Time Offer!</span>
+                                <div class="text-left ml-5 mt-1 regFont font-weight-bold">
+                                    <span> Limited Time Offer!</span>
                                 </div>
                                 <div class="text-left ml-5 regFont font-italic">
                                     <span>Offer Ends Soon!</span>
@@ -57,7 +61,7 @@
                     <div class="carousel-item">
                         <div class="row">
                             <div class="col-sm-6 carouselImgDiv">
-                                <img src="pic2b.jpg" class="d-block carouselImg" alt="Img not found">
+                                <img src="img/pic2.jpg" class="d-block carouselImg" alt="Img not found">
                             </div>
                             <div class="col carouselInfoDiv2">
                                 <div class="ml-5">
@@ -82,6 +86,16 @@
                             </div>
                         </div>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev" id="prevAnchor">
+                        <span class="text-primary">
+                            <i style="font-size: 30px" class="fas fa-arrow-left" id="arrow"></i>
+                        </span>                       
+                    </a>
+                    <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next" id="nextAnchor">
+                        <span class="text-primary">
+                            <i style="font-size: 30px" class="fas fa-arrow-right" id="arrow"></i>
+                        </span>                       
+                    </a>
                 </div>
             </div>
         </section>
@@ -90,28 +104,38 @@
         <section class="mt-4">
             <div class="row">
                 <div class="col">
-                    <div class="card bg-warning my-2">
-                        <div class="card-body">
-                            <div class="text-center"><i class="far fa-list-alt cardsIcons"></i></div>
-                            <div class="text-center text-light mt-5 font-weight-bold">VIEW TV PACKAGES</div>
+                    <a href="/packages.html" >
+                        <div class="card bg-warning my-2">
+                            <div class="card-body">
+                                <div class="text-center"><i class="far fa-list-alt cardsIcons"></i></div>
+                                <div class="text-center text-light mt-5 font-weight-bold">VIEW TV PACKAGES</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col">
-                    <div class="card bg-info my-2">
-                        <div class="card-body">
-                            <div class="text-center"><i class="fas fa-tv cardsIcons"></i></div>
-                            <div class="text-center text-light mt-5 font-weight-bold">BUY NEW SERVICE</div>
+                    <a href="/purchase.html" >
+                        <div class="card bg-info my-2">
+                            <div class="card-body">
+                                <div class="text-center"><i class="fas fa-tv cardsIcons"></i></div>
+                                <div class="text-center text-light mt-5 font-weight-bold">BUY NEW SERVICE</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col">
-                    <div class="card bg-success my-2">
-                        <div class="card-body">
-                            <div class="text-center"><i class="fas fa-redo cardsIcons"></i></i></div>
-                            <div class="text-center text-light mt-5 font-weight-bold">RENEW SERVICE</div>
-                        </div>
-                    </div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="renewForm">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="XPVKW3C8UMKTQ">
+                        <a href="#" id="renew">
+                            <div class="card bg-success my-2">
+                                <div class="card-body">
+                                    <div class="text-center"><i class="fas fa-redo cardsIcons"></i></i></div>
+                                    <div class="text-center text-light mt-5 font-weight-bold">RENEW SERVICE</div>
+                                </div>
+                            </div>
+                        </a>
+                    </form>
                 </div>
             </div>
         </section>
@@ -123,8 +147,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+        crossorigin="anonymous"></script>    
+    <script src="js/script.js"></script>
 </body>
 
 </html>

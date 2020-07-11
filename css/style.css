@@ -42,11 +42,23 @@
   background-color: black;  
 }
 
+#arrow {
+    bottom: -30px;
+}
+
 .cardsIcons {
     font-size: 100px;
     color: white;
 }
 
+@media screen and (max-width: 767px) {    
+    #prevAnchor {
+       display: none;
+    }  
+    #nextAnchor {
+        display: none;
+     } 
+}
 @media screen and (max-height: 610px) {    
     .carouselInfoDiv2 {
         margin-top: 80px !important;             
@@ -61,3 +73,5 @@
         bottom: -30px;
     }
 }
+
+
