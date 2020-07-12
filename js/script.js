@@ -1,29 +1,25 @@
 $(document).ready(function () {
 
-    $('#renew').on('click', function () {        
+    $('#renew').on('click', function () {
         $("#renewForm").submit();
     });
 
-    // Displays the information from the international package in the modal.
-    $("#intPkgLink").on("click", function () {
-        $("#modalTitle").html(`<div class="font-weight-bold">${intPackage.title}</div>`);
-        $("#modalTitle").append(`<div class="font-italic">${intPackage.price}</div>`);
+    $("#pkgView").on("click", function () {        
+        displayPkg(intPackage);
+    });
+
+    $("#pkgChoose").on("change", function () {
+        const val = $("#pkgChoose option:selected").text();        
+        val === 'USA/Latino Package' ? displayPkg(latinoPackage) : displayPkg(intPackage);;        
+    });
+
+    const displayPkg = function (pkg) {
+        $("#modalTitle").html(`<div class="font-weight-bold">${pkg.title}</div>`);
+        $("#modalTitle").append(`<div class="font-italic">${pkg.price}</div>`);
         $("#modalBodyScroll").empty();
-        intPackage.content.forEach(function (val) {
+        pkg.content.forEach(function (val) {
             $("#modalBodyScroll").append(`${val}<br>`);
         });
         $("#channelsModal").modal("show");
-    });
-
-    // Displays the information from the latino package in the modal.
-    $("#latinoPkgLink").on("click", function () {
-        $("#modalTitle").html(`<div class="font-weight-bold">${latinoPackage.title}</div>`);
-        $("#modalTitle").append(`<div class="font-italic">${latinoPackage.price}</div>`);
-        $("#modalBodyScroll").empty();
-        latinoPackage.content.forEach(function (val) {
-            $("#modalBodyScroll").append(`${val}<br>`);
-        });
-        $("#channelsModal").modal("show");
-    });
-
+    }
 });

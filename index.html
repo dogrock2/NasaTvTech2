@@ -107,14 +107,12 @@
             <div class="row">
                 <div class="col">
                     <div class="card bg-warning my-2">
-                        <div class="card-body">
-                            <div class="text-center"><i class="far fa-list-alt cardsIcons"></i></div>
-                            <div class="text-center text-light mt-4 font-weight-bold">VIEW TV PACKAGES</div>
-                            <div class="text-center text-light font-weight-bold">
-                                <span><a href="#" id="intPkgLink"><i class="fas fa-globe-africa"></i> International</a></span> |
-                                <span><a href="#" id="latinoPkgLink"><i class="fas fa-globe-americas"></i> USA/Latino</a></span>
+                        <a href="#" id="pkgView">
+                            <div class="card-body">
+                                <div class="text-center"><i class="far fa-list-alt cardsIcons"></i></div>
+                                <div class="text-center text-light mt-5 font-weight-bold">VIEW TV PACKAGES</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col">
@@ -158,6 +156,10 @@
                         <div id="modalBodyScroll"></div>
                     </div>
                     <div class="modal-footer">
+                        <select class="custom-select mr-sm-2" id="pkgChoose">
+                            <option selected value="1">International Package</option>
+                            <option value="2">USA/Latino Package</option>
+                        </select>
                         <button class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -173,7 +175,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="js/internationalPackage.js"></script>
-    <script src="js/latinoPackage.js"></script>  
+    <script src="js/latinoPackage.js"></script>
     <script src="js/script.js"></script>
 </body>
 
