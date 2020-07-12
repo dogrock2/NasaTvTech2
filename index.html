@@ -52,8 +52,8 @@
                                     <span>Offer Ends Soon!</span>
                                 </div>
                                 <div class="text-left ml-5">
-                                    <button type="button" class="btn btn-outline-primary my-2"><i
-                                            class="fas fa-shopping-cart"></i> Buy Now</button>
+                                    <a href="purchase.html" class="btn btn-outline-primary my-2"><i
+                                            class="fas fa-shopping-cart"></i> Buy Now</a>
                                 </div>
                             </div>
                         </div>
@@ -80,21 +80,23 @@
                                     <span><i class="far fa-thumbs-up"></i> In stock</span>
                                 </div>
                                 <div class="text-left ml-5">
-                                    <button type="button" class="btn btn-outline-primary my-2"><i
-                                            class="fas fa-shopping-cart"></i> Buy Now</button>
+                                    <a href="purchase.html" class="btn btn-outline-primary my-2"><i
+                                            class="fas fa-shopping-cart"></i> Buy Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev" id="prevAnchor">
+                    <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev"
+                        id="prevAnchor">
                         <span class="text-primary">
                             <i style="font-size: 30px" class="fas fa-arrow-left" id="arrow"></i>
-                        </span>                       
+                        </span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next" id="nextAnchor">
+                    <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next"
+                        id="nextAnchor">
                         <span class="text-primary">
                             <i style="font-size: 30px" class="fas fa-arrow-right" id="arrow"></i>
-                        </span>                       
+                        </span>
                     </a>
                 </div>
             </div>
@@ -104,17 +106,19 @@
         <section class="mt-4">
             <div class="row">
                 <div class="col">
-                    <a href="packages.html" >
-                        <div class="card bg-warning my-2">
-                            <div class="card-body">
-                                <div class="text-center"><i class="far fa-list-alt cardsIcons"></i></div>
-                                <div class="text-center text-light mt-5 font-weight-bold">VIEW TV PACKAGES</div>
+                    <div class="card bg-warning my-2">
+                        <div class="card-body">
+                            <div class="text-center"><i class="far fa-list-alt cardsIcons"></i></div>
+                            <div class="text-center text-light mt-4 font-weight-bold">VIEW TV PACKAGES</div>
+                            <div class="text-center text-light font-weight-bold">
+                                <span><a href="#" id="intPkgLink"><i class="fas fa-globe-africa"></i> International</a></span> |
+                                <span><a href="#" id="latinoPkgLink"><i class="fas fa-globe-americas"></i> USA/Latino</a></span>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="col">
-                    <a href="purchase.html" >
+                    <a href="purchase.html">
                         <div class="card bg-info my-2">
                             <div class="card-body">
                                 <div class="text-center"><i class="fas fa-tv cardsIcons"></i></div>
@@ -139,6 +143,26 @@
                 </div>
             </div>
         </section>
+        <!-- Packages Modal -->
+        <div class="modal fade" id="channelsModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title"><span id="modalTitle"></span></h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <div id="modalBodyScroll"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -147,7 +171,9 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>    
+        crossorigin="anonymous"></script>
+    <script src="js/internationalPackage.js"></script>
+    <script src="js/latinoPackage.js"></script>  
     <script src="js/script.js"></script>
 </body>
 

@@ -1,6 +1,6 @@
 
 const intPackage = {
-    title: `<div>International EU/US/CA/UK 4419 Live Channels +</div><div> 8149 Video on Demand</div>`,
+    title: `International EU/US/CA/UK 4419 Live Channels + 8149 Video on Demand`,
     price: `&bull; $20 per month or $110 for the year`,
     content: ["Bein Sports Regular ",
         "BEIN Entertainment Regular ",

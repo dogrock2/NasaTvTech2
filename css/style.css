@@ -51,6 +51,11 @@
     color: white;
 }
 
+#modalBodyScroll {
+    height: 30vh;
+    overflow-y: scroll;    
+  }
+
 @media screen and (max-width: 767px) {    
     #prevAnchor {
        display: none;
@@ -73,5 +78,7 @@
         bottom: -30px;
     }
 }
+
+
 
 
