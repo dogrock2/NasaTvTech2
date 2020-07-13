@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     const firestickPrice = 170;
-    const boxPrice = 123;
+    const boxPrice = 120;
     const pricesIntPkg = [0,5,6,7,8]; //none, 1month, 3month, 6month, 1yr
     const pricesLatPkg = [0,1,2,3,4]; //none, 1month, 3month, 6month, 1yr
 
@@ -14,6 +14,13 @@ $(document).ready(function () {
     $("#boxPrice").text(`$${boxPrice}`);
 
     priceUpdate();
+
+    $("#dev1").on('click', function(){
+        $("#radioDev1").prop("checked", true);
+    });
+    $("#dev2").on('click', function(){
+        $("#radioDev2").prop("checked", true);
+    });
 
     $('#renew').on('click', function () {
         $("#renewForm").submit();
