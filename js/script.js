@@ -17,9 +17,11 @@ $(document).ready(function () {
 
     $("#dev1").on('click', function(){
         $("#radioDev1").prop("checked", true);
+        devRadioChng();        
     });
     $("#dev2").on('click', function(){
         $("#radioDev2").prop("checked", true);
+        devRadioChng();
     });
 
     $('#renew').on('click', function () {
@@ -49,11 +51,16 @@ $(document).ready(function () {
         console.log("Buy now");               
     });
 
-    $('input[name="deviceOptions"]').on("change", function () {
+    $('input[name="deviceOptions"]').on("change", function () {        
+        devRadioChng();        
+    });
+
+    function devRadioChng(){
         const device = $('input[name="deviceOptions"]:checked').val();
         device === 'device2' ? devPrice = boxPrice : devPrice = firestickPrice;
-        priceUpdate();        
-    });
+        priceUpdate(); 
+    }
+
     $('input[name="packageOptions"]').on("change", function () {
         pkg = $('input[name="packageOptions"]:checked').val();
         modPricePkg();
