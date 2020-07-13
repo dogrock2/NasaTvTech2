@@ -1,5 +1,20 @@
 $(document).ready(function () {
 
+    const firestickPrice = 170;
+    const boxPrice = 123;
+    const pricesIntPkg = [0,5,6,7,8]; //none, 1month, 3month, 6month, 1yr
+    const pricesLatPkg = [0,1,2,3,4]; //none, 1month, 3month, 6month, 1yr
+
+    let pkg = "pkg1";
+    let devPrice = 170;    
+    let additionalPrice = 0;
+    let additionalIndex = 0;
+
+    $("#firestickPrice").text(`$${firestickPrice}`);
+    $("#boxPrice").text(`$${boxPrice}`);
+
+    priceUpdate();
+
     $('#renew').on('click', function () {
         $("#renewForm").submit();
     });
@@ -10,7 +25,7 @@ $(document).ready(function () {
 
     $("#pkgChoose").on("change", function () {
         const val = $("#pkgChoose option:selected").text();        
-        val === 'USA/Latino Package' ? displayPkg(latinoPackage) : displayPkg(intPackage);;        
+        val === 'USA/Latino Package' ? displayPkg(latinoPackage) : displayPkg(intPackage);                
     });
 
     const displayPkg = function (pkg) {
@@ -22,4 +37,33 @@ $(document).ready(function () {
         });
         $("#channelsModal").modal("show");
     }
+
+    $("#addBtn").on('click', function(){        
+        console.log("Buy now");               
+    });
+
+    $('input[name="deviceOptions"]').on("change", function () {
+        const device = $('input[name="deviceOptions"]:checked').val();
+        device === 'device2' ? devPrice = boxPrice : devPrice = firestickPrice;
+        priceUpdate();        
+    });
+    $('input[name="packageOptions"]').on("change", function () {
+        pkg = $('input[name="packageOptions"]:checked').val();
+        modPricePkg();
+    });
+    
+    $('input[name="extraService"]').on("change", function () {        
+        additionalIndex = $('input[name="extraService"]').index($('input[name="extraService"]:checked'));        
+        modPricePkg();        
+    });
+
+    function modPricePkg(){               
+        pkg === 'pkg1' ? additionalPrice = pricesIntPkg[additionalIndex] : additionalPrice = pricesLatPkg[additionalIndex];
+        priceUpdate();
+    }
+
+    function priceUpdate () {
+        $('#dollarVal').text(devPrice+additionalPrice);
+    }
+
 });
