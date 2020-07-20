@@ -12,9 +12,24 @@
 <body>
     <section>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <img src="img/logo1.jpg" alt="image not found" id="logo">
-                <span class="font-weight-bold ml-2">Welcome</span>
+            <nav class="navbar navbar-expand navbar-light bg-light">
+                <img src="img/logo1.jpg" alt="image not found" id="logo">                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item d-none d-sm-block">
+                            <span class="ml-3 font-weight-bold">HOME <i
+                                    class="fas fa-cart-arrow-down"></i></span>
+                        </li>
+                        <li class="ml-5"><a href="purchase.html">BUY SERVICE</a></li>
+                        <li class="ml-3"><a href="merchandise.html">MERCHANDISE</a></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <span class="font-weight-bold mr-1"><a href="#" id="cartLink"><i
+                                    class="fas fa-shopping-cart"></i> Cart
+                                Total:</a> $</span>
+                        <span class="font-italic" id="cartVal">0</span>
+                    </form>
+                </div>
             </nav>
         </header>
     </section>
@@ -126,11 +141,25 @@
                     </a>
                 </div>
                 <div class="col">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="merchendiseForm">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="XPVKW3C8UMKTQ">
+                        <a href="merchandise.html" id="renew">
+                            <div class="card bg-success my-2">
+                                <div class="card-body">
+                                    <div class="text-center"><i class="fas fa-tshirt cardsIcons"></i></div>
+                                    <div class="text-center text-light mt-5 font-weight-bold">VIEW MERCHANDISE</div>
+                                </div>
+                            </div>
+                        </a>
+                    </form>
+                </div>
+                <div class="col">
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="renewForm">
                         <input type="hidden" name="cmd" value="_s-xclick">
                         <input type="hidden" name="hosted_button_id" value="XPVKW3C8UMKTQ">
                         <a href="#" id="renew">
-                            <div class="card bg-success my-2">
+                            <div class="card bg-primary my-2">
                                 <div class="card-body">
                                     <div class="text-center"><i class="fas fa-redo cardsIcons"></i></i></div>
                                     <div class="text-center text-light mt-5 font-weight-bold">RENEW SERVICE</div>
@@ -146,11 +175,11 @@
             <div class="row mt-5">
                 <div class="col-lg-4 col-sm-2 "></div>
                 <div class="col-lg-4 col-sm-8 ">
-                    <form>
+                    <form id="contactFrm">
                         <h3><span class="font-weight-bold">Contact Us:<span></h3>
                         <div class="form-group">
                             <label for="frmName">Name:</label>
-                            <input type="text" class="form-control" id="frmName" placeholder="John Doe">
+                            <input type="text" class="form-control" id="frmName" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email:</label>
@@ -161,10 +190,11 @@
                             <input type="text" class="form-control" id="frmPhone" placeholder="###-###-####">
                         </div>
                         <div class="form-group">
-                            <label for="frmComment">Comment:</label>
-                            <textarea class="form-control" id="frmComment" rows="3"></textarea>
+                            <label for="frmComment">Message:</label>
+                            <textarea class="form-control" id="frmComment" rows="3" required></textarea>
                         </div>
-                        <button class="btn btn-outline-primary btn-block">SEND</button>
+                        <div class="text-center text-danger" id="frmErrMsg"></div>
+                        <button class="btn btn-outline-primary btn-block">SEND</button>                        
                     </form>
                 </div>
                 <div class="col"></div>
@@ -181,6 +211,27 @@
                 </div>
             </div>
         </section><br>
+
+        <!-- Message Modal -->
+        <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title font-weight-bold">Message sent.</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body font-italic" id="msgModalBody">
+                        We will contact you soon. Thank you.
+                    </div>
+                    <div class="modal-footer">                        
+                        <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Packages Modal -->
         <div class="modal fade" id="channelsModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
@@ -207,6 +258,25 @@
             </div>
         </div>
     </div>
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title font-weight-bold">Shopping Cart</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body font-italic" id="cartModalBody"></div>
+                <div class="modal-footer">
+                    <div class="mr-5">Total $<span id="totalAtModal" class="ml-1">0</span></div>
+                    <button class="btn btn-success" data-dismiss="modal">Pay Now</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -217,6 +287,7 @@
         crossorigin="anonymous"></script>
     <script src="js/internationalPackage.js"></script>
     <script src="js/latinoPackage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
